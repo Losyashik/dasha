@@ -156,4 +156,25 @@ section {
 .main .programs-main__item:hover .information {
   background-color: rgba(0, 0, 0, 0.6);
   top: 0;
+}
+.main .info {
+  padding: 5vh 0;
+}
+.main .info .advantages__item {
+  width: 100%;
+  height: 80vh;
+  position: relative;
+}
+.main .info .advantages__item.first {
+  background: url(./../images/advantages/first.jpg);
+  background-position: center;
+  background-size: cover;
+}
+.main .info .advantages__item.first p {
+  width: 29%;
+  position: absolute;
+  bottom: 5vh;
+  left: 5vw;
+  color: #fff;
+  font-size: 1.5em;
 }/*# sourceMappingURL=style.css.map */

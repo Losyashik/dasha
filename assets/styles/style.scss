@@ -150,8 +150,13 @@ section {
     }
   }
   .info {
-    padding: 5vh 0 0;
+    background: #000;
     .advantages {
+      &__heading{
+        text-align: center;
+        font-size: 1.8em;
+        color: #fff;
+      }
       &__item {
         box-sizing: border-box;
         width: 100%;
@@ -171,6 +176,7 @@ section {
           }
         }
         &.second {
+          background: #d9d9d9;
           display:flex;
           justify-content: space-between;
           padding: 5vh 5vw;
@@ -226,6 +232,7 @@ section {
             }
           }
           .thrid__description{
+            background: #d9d9d9;
             display: flex;
             justify-content: space-between;
             padding: 5vh 5vw;
@@ -258,6 +265,112 @@ section {
             bottom: 5vh;
           }
         }
+      }
+    }
+    .instructors{
+      padding: 5vh 5vw;
+      font-size: 1.8em;
+
+      &__heading{
+        text-align: center;
+        margin: 0;
+        color: #fff;
+      }
+      &-main{
+        display: flex;
+        justify-content: space-between;
+        padding: 5vh 0 0;
+        flex-wrap: wrap;
+        &__item{
+          width: 30%;
+          margin-bottom: 5vh;
+          color: #fff;
+          text-align: center;
+          .img{
+            margin: 0 auto;
+            border-radius: 50%;
+            overflow: hidden;
+            width: 40vh;
+            height: 40vh;
+          }
+          h3, p{
+            margin: .5em 0;
+          }
+        }
+      }
+    }
+  }
+  .application{
+    padding: 5vh 0;
+    background: #000;
+    .heading{
+      color: #fff;
+    }
+    .aplication-form{
+      background-color: #252323;
+      padding: 2vh 2vw;
+      width: 40%;
+      margin: 5vh auto 0;
+      border-radius: 20px;
+      *{
+        display: block;
+        width: 90%;
+        padding: 10px;
+        box-sizing: border-box;
+        margin: 4vh auto;
+        border-radius: 10px;
+        font-size: 1.5em;
+      }
+      button{
+        width: 40%;
+      }
+    }
+  }
+  .contacts{
+    padding: 5vh 5vw;
+    &-main{
+      margin-top: 2vh;
+      display: flex;
+      height: 50vh;
+      &__map{
+        width: 50%;
+      }
+      &__information{
+        font-size: 1.5em;
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        box-sizing: border-box;
+        padding: 0 4vh;
+        a{
+          display: block;
+          color: #000;
+          &.mail{
+            margin: 5vh 0;
+          }
+        }
+      }
+    }
+  }
+}
+.footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000;
+  padding: 4vh 5vw;
+  font-size: 1.5em;
+  color: #fff;
+  text-align: center;
+  &__social{
+    display: flex;
+    justify-content: flex-end;
+    &-link{
+      margin-right: 1vw;
+      width: 10vh;
+      height: 10vw;
+      img{
+        object-fit: contain;
       }
     }
   }

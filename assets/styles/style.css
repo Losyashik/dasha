@@ -158,7 +158,12 @@ section {
   top: 0;
 }
 .main .info {
-  padding: 5vh 0 0;
+  background: #000;
+}
+.main .info .advantages__heading {
+  text-align: center;
+  font-size: 1.8em;
+  color: #fff;
 }
 .main .info .advantages__item {
   box-sizing: border-box;
@@ -180,6 +185,7 @@ section {
   font-size: 1.5em;
 }
 .main .info .advantages__item.second {
+  background: #d9d9d9;
   display: flex;
   justify-content: space-between;
   padding: 5vh 5vw;
@@ -237,6 +243,7 @@ section {
   font-size: 1.5em;
 }
 .main .info .advantages__item.third .thrid__description {
+  background: #d9d9d9;
   display: flex;
   justify-content: space-between;
   padding: 5vh 5vw;
@@ -267,4 +274,111 @@ section {
   position: absolute;
   left: 5vw;
   bottom: 5vh;
+}
+.main .info .instructors {
+  padding: 5vh 5vw;
+  font-size: 1.8em;
+}
+.main .info .instructors__heading {
+  text-align: center;
+  margin: 0;
+  color: #fff;
+}
+.main .info .instructors-main {
+  display: flex;
+  justify-content: space-between;
+  padding: 5vh 0 0;
+  flex-wrap: wrap;
+}
+.main .info .instructors-main__item {
+  width: 30%;
+  margin-bottom: 5vh;
+  color: #fff;
+  text-align: center;
+}
+.main .info .instructors-main__item .img {
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 40vh;
+  height: 40vh;
+}
+.main .info .instructors-main__item h3, .main .info .instructors-main__item p {
+  margin: 0.5em 0;
+}
+.main .application {
+  padding: 5vh 0;
+  background: #000;
+}
+.main .application .heading {
+  color: #fff;
+}
+.main .application .aplication-form {
+  background-color: #252323;
+  padding: 2vh 2vw;
+  width: 40%;
+  margin: 5vh auto 0;
+  border-radius: 20px;
+}
+.main .application .aplication-form * {
+  display: block;
+  width: 90%;
+  padding: 10px;
+  box-sizing: border-box;
+  margin: 4vh auto;
+  border-radius: 10px;
+  font-size: 1.5em;
+}
+.main .application .aplication-form button {
+  width: 40%;
+}
+.main .contacts {
+  padding: 5vh 5vw;
+}
+.main .contacts-main {
+  margin-top: 2vh;
+  display: flex;
+  height: 50vh;
+}
+.main .contacts-main__map {
+  width: 50%;
+}
+.main .contacts-main__information {
+  font-size: 1.5em;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  box-sizing: border-box;
+  padding: 0 4vh;
+}
+.main .contacts-main__information a {
+  display: block;
+  color: #000;
+}
+.main .contacts-main__information a.mail {
+  margin: 5vh 0;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000;
+  padding: 4vh 5vw;
+  font-size: 1.5em;
+  color: #fff;
+  text-align: center;
+}
+.footer__social {
+  display: flex;
+  justify-content: flex-end;
+}
+.footer__social-link {
+  margin-right: 1vw;
+  width: 10vh;
+  height: 10vw;
+}
+.footer__social-link img {
+  -o-object-fit: contain;
+     object-fit: contain;
 }/*# sourceMappingURL=style.css.map */

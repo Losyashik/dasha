@@ -43,12 +43,20 @@ section {
   box-sizing: border-box;
   color: #fff;
 }
+@media (max-width: 1024px) {
+  .header {
+    background-position: top left;
+  }
+}
 .header .topbar {
   display: flex;
   justify-content: space-between;
   padding: 5vh 5vw;
   width: 100%;
   box-sizing: border-box;
+}
+.header .topbar__burger {
+  display: none;
 }
 .header .topbar__ul {
   width: 50%;
@@ -86,6 +94,82 @@ section {
   margin: 0 10vw;
   text-align: center;
   text-decoration: none;
+}
+@media (max-width: 1024px) {
+  .header .topbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 5vh 5vw;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .header .topbar__burger {
+    display: block;
+    position: relative;
+    z-index: 101;
+    background: none;
+    border: none;
+    height: 10vh;
+    width: 10vh;
+  }
+  .header .topbar__burger img {
+    -o-object-fit: contain;
+       object-fit: contain;
+    filter: invert(100);
+  }
+  .header .topbar__ul {
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    z-index: 100;
+    margin: 0;
+    height: 100vh;
+    background: rgba(64, 64, 64, 0.9);
+    position: fixed;
+    padding: 15vh 2vw 0;
+    top: 0;
+    left: 0;
+    list-style-type: none;
+  }
+  .header .topbar__ul--active {
+    display: flex;
+  }
+  .header .topbar__li {
+    display: block;
+    margin: 2vh 0;
+  }
+  .header .topbar__nav-link {
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  .header .topbar__contacts {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  .header-content {
+    width: 100%;
+    position: absolute;
+    top: 10vh;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 1.8em;
+    text-align: center;
+    text-shadow: 0 0 10px #000;
+  }
+  .header-content__link {
+    background: rgba(0, 0, 0, 0.6);
+    width: 300px;
+    border-radius: 60px;
+    padding: 10px 0;
+    margin: 0;
+    text-align: center;
+    text-decoration: none;
+  }
 }
 
 .main {
@@ -130,6 +214,11 @@ section {
   border-radius: 20px;
   overflow: hidden;
   height: 55vh;
+}
+@media (max-width: 1024px) {
+  .main .programs-main__item {
+    width: 100%;
+  }
 }
 .main .programs-main__item .information {
   z-index: 5;
@@ -184,6 +273,17 @@ section {
   color: #fff;
   font-size: 1.5em;
 }
+@media (max-width: 1024px) {
+  .main .info .advantages__item.first p {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    bottom: 0;
+    left: 0;
+    padding: 5vh 0;
+    text-align: center;
+    margin: 0;
+  }
+}
 .main .info .advantages__item.second {
   background: #d9d9d9;
   display: flex;
@@ -192,6 +292,11 @@ section {
   height: 70vh;
   position: static;
 }
+@media (max-width: 1024px) {
+  .main .info .advantages__item.second {
+    flex-direction: column;
+  }
+}
 .main .info .advantages__item.second .second__text {
   width: 40%;
   height: 100%;
@@ -199,6 +304,11 @@ section {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+@media (max-width: 1024px) {
+  .main .info .advantages__item.second .second__text {
+    width: 100%;
+  }
 }
 .main .info .advantages__item.second .second__text h3 {
   font-size: 1.7em;
@@ -214,6 +324,11 @@ section {
   height: 100%;
   border-radius: 20px;
   overflow: hidden;
+}
+@media (max-width: 1024px) {
+  .main .info .advantages__item.second .second__image {
+    width: 100%;
+  }
 }
 .main .info .advantages__item.third {
   height: auto;
@@ -242,6 +357,25 @@ section {
   top: 15vh;
   font-size: 1.5em;
 }
+@media (max-width: 1024px) {
+  .main .info .advantages__item.third .third__image {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .main .info .advantages__item.third .third__image * {
+    width: 100%;
+    margin: 0;
+    padding: 2vh 2vw;
+    position: static;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+    box-sizing: border-box;
+  }
+  .main .info .advantages__item.third .third__image h3 {
+    top: 0;
+  }
+}
 .main .info .advantages__item.third .thrid__description {
   background: #d9d9d9;
   display: flex;
@@ -259,6 +393,15 @@ section {
   justify-content: center;
   align-items: center;
 }
+@media (max-width: 1024px) {
+  .main .info .advantages__item.third .thrid__description {
+    flex-direction: column;
+  }
+  .main .info .advantages__item.third .thrid__description .thrid__description-block {
+    width: 100%;
+    margin-bottom: 2vh;
+  }
+}
 .main .info .advantages__item.fourth {
   background: rgba(0, 0, 0, 0.6) url(./../images/advantages/fourth.webp);
   background-repeat: no-repeat;
@@ -275,6 +418,16 @@ section {
   left: 5vw;
   bottom: 5vh;
 }
+@media (max-width: 1024px) {
+  .main .info .advantages__item.fourth p {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+    padding: 5vh 2vh;
+    box-sizing: border-box;
+  }
+}
 .main .info .instructors {
   padding: 5vh 5vw;
   font-size: 1.8em;
@@ -290,11 +443,22 @@ section {
   padding: 5vh 0 0;
   flex-wrap: wrap;
 }
+@media (max-width: 1024px) {
+  .main .info .instructors-main {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 .main .info .instructors-main__item {
   width: 30%;
   margin-bottom: 5vh;
   color: #fff;
   text-align: center;
+}
+@media (max-width: 1024px) {
+  .main .info .instructors-main__item {
+    width: 90%;
+  }
 }
 .main .info .instructors-main__item .img {
   margin: 0 auto;
@@ -303,7 +467,8 @@ section {
   width: 40vh;
   height: 40vh;
 }
-.main .info .instructors-main__item h3, .main .info .instructors-main__item p {
+.main .info .instructors-main__item h3,
+.main .info .instructors-main__item p {
   margin: 0.5em 0;
 }
 .main .application {
@@ -332,6 +497,11 @@ section {
 .main .application .aplication-form button {
   width: 40%;
 }
+@media (max-width: 1024px) {
+  .main .application .aplication-form {
+    width: 90%;
+  }
+}
 .main .contacts {
   padding: 5vh 5vw;
 }
@@ -358,6 +528,19 @@ section {
 .main .contacts-main__information a.mail {
   margin: 5vh 0;
 }
+@media (max-width: 1024px) {
+  .main .contacts-main {
+    height: auto;
+    flex-direction: column-reverse;
+  }
+  .main .contacts-main__map {
+    width: 100%;
+    height: 40vh;
+  }
+  .main .contacts-main__information {
+    width: 100%;
+  }
+}
 
 .footer {
   display: flex;
@@ -368,6 +551,18 @@ section {
   font-size: 1.5em;
   color: #fff;
   text-align: center;
+}
+@media (max-width: 1024px) {
+  .footer {
+    flex-direction: column;
+  }
+  .footer__copyright {
+    margin: 2vh 0;
+  }
+}
+.footer__mail-link {
+  font-size: 1.5em;
+  color: #fff;
 }
 .footer__social {
   display: flex;

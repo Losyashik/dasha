@@ -6,13 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/styles/style.css">
+    <script src="./assets/scripts/jquery-3.6.3.js"></script>
+    <script src="./assets/scripts/scripts.js"></script>
     <title>Фитнес-центр “Sila”</title>
 </head>
 
 <body>
     <header class="header">
         <nav class="header__topbar topbar">
-            <ul class="topbar__ul">
+            <button type="button" class="topbar__burger"><img src="./assets/images/icons/burger.png" alt=""></button>
+            <ul class="topbar__ul topbar__ul--active">
                 <li class="topbar__li"><a href="#" class="topbar__nav-link link">Главная</a></li>
                 <li class="topbar__li"><a href="#programs" class="topbar__nav-link link">Программы</a></li>
                 <li class="topbar__li"><a href="#info" class="topbar__nav-link link">О нас</a></li>
@@ -213,7 +216,7 @@
         </section>
     </main>
     <footer class="footer">
-        <div class="footer__mail"><a href="mail:fitnes@Sila.ru" class="footer footer--mail-link">fitnes@Sila.ru</a>
+        <div class="footer__mail"><a href="mail:fitnes@Sila.ru" class="footer__mail-link">fitnes@Sila.ru</a>
         </div>
         <div class="footer__copyright">Все права защищены &copy;</div>
         <div class="footer__social">
@@ -221,6 +224,15 @@
             <a href="" class="footer__social-link"><img src="./assets/images/icons/telegram.png" alt=""></a>
         </div>
     </footer>
+    <script>
+        $(`.topbar__burger, .topbar__li`).click(() => {
+            $(`.topbar__ul`).toggleClass(`topbar__ul--active`);
+            if ($(`.topbar__ul`).hasClass(`topbar__ul--active`))
+                $(`body`).css({ "position": "fixed" });
+            else
+                $(`body`).css({ "position": "static" });
+        })
+    </script>
 </body>
 
 </html>

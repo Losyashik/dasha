@@ -39,61 +39,21 @@
         <section class="programs section" id="programs">
             <h1 class="programs__heading heading">Программы и услуги</h1>
             <main class="programs-main programs__main ">
-                <article class="programs-main__item">
-                    <img class="background" src="./assets/images/programs/joga.jpg" alt="Йога">
-                    <div class="information">
-                        <h4 class="information__name">Йога</h4>
-                        <p class="information__discription">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Nulla hic commodi repudiandae officiis dolor ex, incidunt perferendis voluptates ab iste
-                            optio accusamus quaerat nam sed nihil id quasi! Reprehenderit, quidem?</p>
-                    </div>
-                </article>
+                <?php
+                $link = mysqli_connect('', 'root', '', 'sila');
+                $res = $link->query("SELECT * FROM programs");
+                for ($data = []; $row = $res->fetch_assoc(); $data[] = $row);
+                foreach ($data as $elem) {
+                ?>
+                    <article class="programs-main__item">
+                        <img class="background" src="<?= $elem['image'] ?>" alt="Йога">
+                        <div class="information">
+                            <h4 class="information__name"><?= $elem['name'] ?></h4>
+                            <p class="information__discription"><?= $elem['description'] ?></p>
+                        </div>
+                    </article>
 
-                <article class="programs-main__item">
-                    <img class="background" src="./assets/images/programs/joga.jpg" alt="Йога">
-                    <div class="information">
-                        <h4 class="information__name">Йога</h4>
-                        <p class="information__discription">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Nulla hic commodi repudiandae officiis dolor ex, incidunt perferendis voluptates ab iste
-                            optio accusamus quaerat nam sed nihil id quasi! Reprehenderit, quidem?</p>
-                    </div>
-                </article>
-                <article class="programs-main__item">
-                    <img class="background" src="./assets/images/programs/joga.jpg" alt="Йога">
-                    <div class="information">
-                        <h4 class="information__name">Йога</h4>
-                        <p class="information__discription">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Nulla hic commodi repudiandae officiis dolor ex, incidunt perferendis voluptates ab iste
-                            optio accusamus quaerat nam sed nihil id quasi! Reprehenderit, quidem?</p>
-                    </div>
-                </article>
-                <article class="programs-main__item">
-                    <img class="background" src="./assets/images/programs/joga.jpg" alt="Йога">
-                    <div class="information">
-                        <h4 class="information__name">Йога</h4>
-                        <p class="information__discription">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Nulla hic commodi repudiandae officiis dolor ex, incidunt perferendis voluptates ab iste
-                            optio accusamus quaerat nam sed nihil id quasi! Reprehenderit, quidem?</p>
-                    </div>
-                </article>
-                <article class="programs-main__item">
-                    <img class="background" src="./assets/images/programs/joga.jpg" alt="Йога">
-                    <div class="information">
-                        <h4 class="information__name">Йога</h4>
-                        <p class="information__discription">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Nulla hic commodi repudiandae officiis dolor ex, incidunt perferendis voluptates ab iste
-                            optio accusamus quaerat nam sed nihil id quasi! Reprehenderit, quidem?</p>
-                    </div>
-                </article>
-                <article class="programs-main__item">
-                    <img class="background" src="./assets/images/programs/joga.jpg" alt="Йога">
-                    <div class="information">
-                        <h4 class="information__name">Йога</h4>
-                        <p class="information__discription">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Nulla hic commodi repudiandae officiis dolor ex, incidunt perferendis voluptates ab iste
-                            optio accusamus quaerat nam sed nihil id quasi! Reprehenderit, quidem?</p>
-                    </div>
-                </article>
+                <?php } ?>
             </main>
         </section>
 
@@ -184,13 +144,10 @@
                 <input type="text" name="name" placeholder="Представьтесь">
                 <input type="tel" name="numberPhone" placeholder="Номер телефона">
                 <select name="category" title="Категория">
-                    <option value="0">Выберете категорию</option>
-                    <option value="1">Йога</option>
-                    <option value="2">Персональная треенеровка</option>
-                    <option value="3">Груповая тренеровка</option>
-                    <option value="4">Спортивные инры</option>
-                    <option value="5">Детская тренеровка</option>
-                    <option value="6">Плавание</option>
+                    <option value="0" selected>Выберете категорию</option>
+                    <?php foreach ($data as $elem) { ?>
+                        <option value="<?= $elem['id'] ?>"><?= $elem['name'] ?></option>
+                    <?php } ?>
                 </select>
                 <button type="submit">Отправить заявку</button>
             </form>
@@ -198,10 +155,7 @@
         <section class="contacts" id="contacts">
             <h1 class="contacts__heading heading">Контакты</h1>
             <main class="contacts__main contacts-main">
-                <article class="contacts-main__map"><iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2219.3758973758017!2d43.35537967725716!3d56.202463257267034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x414e398925c2d785%3A0xfda5e63a9154cf39!2z0YPQuy4g0KHQvtCy0LXRgtGB0LrQsNGPLCAxLCDQltC10LvQvdC40L3Qviwg0J3QuNC20LXQs9C-0YDQvtC00YHQutCw0Y8g0L7QsdC7LiwgNjA2MDQ0!5e0!3m2!1sru!2sru!4v1683807606791!5m2!1sru!2sru"
-                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe></article>
+                <article class="contacts-main__map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2219.3758973758017!2d43.35537967725716!3d56.202463257267034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x414e398925c2d785%3A0xfda5e63a9154cf39!2z0YPQuy4g0KHQvtCy0LXRgtGB0LrQsNGPLCAxLCDQltC10LvQvdC40L3Qviwg0J3QuNC20LXQs9C-0YDQvtC00YHQutCw0Y8g0L7QsdC7LiwgNjA2MDQ0!5e0!3m2!1sru!2sru!4v1683807606791!5m2!1sru!2sru" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></article>
                 <article class="contacts-main__information">
                     <h2>Режим работы фитнес-центра</h2>
                     <p>Ежедневно: 07:00 - 23:00</p>
@@ -224,13 +178,37 @@
             <a href="" class="footer__social-link"><img src="./assets/images/icons/telegram.png" alt=""></a>
         </div>
     </footer>
+    <div class="modal">
+        Ваша заявка принята<br />Менеджер свяжется с вами в течении часа
+    </div>
     <script>
         $(`.topbar__burger, .topbar__li`).click(() => {
             $(`.topbar__ul`).toggleClass(`topbar__ul--active`);
             if ($(`.topbar__ul`).hasClass(`topbar__ul--active`))
-                $(`body`).css({ "position": "fixed" });
+                $(`body`).css({
+                    "position": "fixed"
+                });
             else
-                $(`body`).css({ "position": "static" });
+                $(`body`).css({
+                    "position": "static"
+                });
+        })
+        $(`.aplication-form`).submit((e) => {
+            e.preventDefault();
+            data = {
+                name: $(`[name='name']`).val(),
+                numberPhone: $(`[name='numberPhone']`).val(),
+                program: $(`[name='category']`).val()
+            }
+            $.ajax({
+                method: 'post',
+                url: "./assets/backend/addApplication.php",
+                data,
+                success: (res) => {
+                    $(`.modal`).addClass(`modal--active`);
+                    $(`.aplication-form`).reset();
+                }
+            })
         })
     </script>
 </body>

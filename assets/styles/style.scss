@@ -23,21 +23,36 @@ section {
   margin: 0;
   text-align: center;
 }
-.header {
-  margin: 0;
-  position: relative;
-  background: rgba($color: #fff, $alpha: 0.2) url(./../images/header.png);
-  background-position: top;
-  @media (max-width: 1024px) {
-    background-position: top left;
-  }
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-blend-mode: color;
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 5vh 5vw;
   width: 100%;
-  height: 100vh;
   box-sizing: border-box;
-  color: #fff;
+  &__burger {
+    display: none;
+  }
+  &__ul {
+    width: 50%;
+    display: flex;
+    margin: 0;
+    list-style-type: none;
+    justify-content: space-between;
+  }
+  &__li {
+    display: block;
+  }
+  &__nav-link {
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  &__contacts {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+}
+@media (max-width: 1024px) {
   .topbar {
     display: flex;
     justify-content: space-between;
@@ -45,17 +60,39 @@ section {
     width: 100%;
     box-sizing: border-box;
     &__burger {
-      display: none;
+      display: block;
+      position: relative;
+      z-index: 101;
+      background: none;
+      border: none;
+      height: 10vh;
+      width: 10vh;
+      img {
+        object-fit: contain;
+        filter: invert(100);
+      }
     }
     &__ul {
-      width: 50%;
-      display: flex;
+      width: 100%;
+      display: none;
+      flex-direction: column;
+      justify-content: flex-start;
+      z-index: 100;
       margin: 0;
+      height: 100vh;
+      background: rgba($color: #404040, $alpha: 0.9);
+      position: fixed;
+      padding: 15vh 2vw 0;
+      top: 0;
+      left: 0;
       list-style-type: none;
-      justify-content: space-between;
+      &--active {
+        display: flex;
+      }
     }
     &__li {
       display: block;
+      margin: 2vh 0;
     }
     &__nav-link {
       text-decoration: none;
@@ -67,6 +104,21 @@ section {
       font-weight: bold;
     }
   }
+}
+.header {
+  margin: 0;
+  position: relative;
+  background: rgba($color: #fff, $alpha: 0.2) url(./../images/header.png);
+  background-position: top;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: color;
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+  color: #fff;
+
   &-content {
     width: 60%;
     position: absolute;
@@ -86,57 +138,7 @@ section {
     }
   }
   @media (max-width: 1024px) {
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      padding: 5vh 5vw;
-      width: 100%;
-      box-sizing: border-box;
-      &__burger {
-        display: block;
-        position: relative;
-        z-index: 101;
-        background: none;
-        border: none;
-        height: 10vh;
-        width: 10vh;
-        img {
-          object-fit: contain;
-          filter: invert(100);
-        }
-      }
-      &__ul {
-        width: 100%;
-        display: none;
-        flex-direction: column;
-        justify-content: flex-start;
-        z-index: 100;
-        margin: 0;
-        height: 100vh;
-        background: rgba($color: #404040, $alpha: 0.9);
-        position: fixed;
-        padding: 15vh 2vw 0;
-        top: 0;
-        left: 0;
-        list-style-type: none;
-        &--active {
-          display: flex;
-        }
-      }
-      &__li {
-        display: block;
-        margin: 2vh 0;
-      }
-      &__nav-link {
-        text-decoration: none;
-        font-size: 1.5em;
-        font-weight: bold;
-      }
-      &__contacts {
-        font-size: 1.5em;
-        font-weight: bold;
-      }
-    }
+    background-position: top left;
     &-content {
       width: 100%;
       position: absolute;
@@ -228,9 +230,9 @@ section {
           &__discription {
             color: #fff;
             opacity: 0;
-            transition: opacity .3s;
+            transition: opacity 0.3s;
           }
-          &__button{
+          &__button {
             width: max-content;
             height: max-content;
             display: block;
@@ -399,8 +401,7 @@ section {
           }
         }
         &.fourth {
-          background: rgba($color: #000, $alpha: 0.6)
-            url(./../images/advantages/fourth.webp);
+          background: rgba($color: #000, $alpha: 0.6) url(./../images/advantages/fourth.webp);
           background-repeat: no-repeat;
           background-size: cover;
           background-position: center;
@@ -583,7 +584,7 @@ section {
   left: 50%;
   display: none;
   translate: -50% -50%;
-  transition: opacity .3s;
+  transition: opacity 0.3s;
   &--active {
     display: block;
     opacity: 1;

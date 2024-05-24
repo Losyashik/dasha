@@ -189,17 +189,7 @@
         Ваша заявка принята<br />Менеджер свяжется с вами в течении часа
     </div>
     <script>
-        $(`.topbar__burger, .topbar__li`).click(() => {
-            $(`.topbar__ul`).toggleClass(`topbar__ul--active`);
-            if ($(`.topbar__ul`).hasClass(`topbar__ul--active`))
-                $(`body`).css({
-                    "position": "fixed"
-                });
-            else
-                $(`body`).css({
-                    "position": "static"
-                });
-        })
+        
         $(`.modal`).click(() => {
             $(`.modal`).addClass(`modal--active`);
         })
@@ -221,6 +211,7 @@
             })
         })
     </script>
+    <script src="./assets/scripts/scripts.js"></script>
 </body>
 
 </html>

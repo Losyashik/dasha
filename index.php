@@ -15,9 +15,10 @@
     <header class="header">
         <nav class="header__topbar topbar">
             <button type="button" class="topbar__burger"><img src="./assets/images/icons/burger.png" alt=""></button>
-            <ul class="topbar__ul topbar__ul--active">
+            <ul class="topbar__ul">
                 <li class="topbar__li"><a href="#" class="topbar__nav-link link">Главная</a></li>
                 <li class="topbar__li"><a href="#programs" class="topbar__nav-link link">Программы</a></li>
+                <li class="topbar__li"><a href="./gallery.php" class="topbar__nav-link link">Галерея</a></li>
                 <li class="topbar__li"><a href="#info" class="topbar__nav-link link">О нас</a></li>
                 <li class="topbar__li"><a href="#contacts" class="topbar__nav-link link">Контакты</a></li>
             </ul>
@@ -48,8 +49,14 @@
                     <article class="programs-main__item">
                         <img class="background" src="<?= $elem['image'] ?>" alt="Йога">
                         <div class="information">
-                            <h4 class="information__name"><?= $elem['name'] ?></h4>
-                            <p class="information__discription"><?= $elem['description'] ?></p>
+                            <h4 class="information__name">
+                                <?= $elem['name'] ?>
+                                <a href="./program.php?id=<?= $elem['id'] ?>" class="information__button">Подробнее</a>
+                            </h4>
+                            <p class="information__discription">
+                                <?= $elem['description'] ?>
+                            </p>
+
                         </div>
                     </article>
 
@@ -193,6 +200,9 @@
                     "position": "static"
                 });
         })
+        $(`.modal`).click(() => {
+            $(`.modal`).addClass(`modal--active`);
+        })
         $(`.aplication-form`).submit((e) => {
             e.preventDefault();
             data = {
@@ -206,7 +216,7 @@
                 data,
                 success: (res) => {
                     $(`.modal`).addClass(`modal--active`);
-                    $(`.aplication-form`).reset();
+                    $(`.aplication-form`)[0].reset();
                 }
             })
         })

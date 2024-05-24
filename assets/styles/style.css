@@ -33,7 +33,7 @@ section {
 .header {
   margin: 0;
   position: relative;
-  background: rgba(255, 255, 255, 0.2) url(./../images/header.jpg);
+  background: rgba(255, 255, 255, 0.2) url(./../images/header.png);
   background-position: top;
   background-size: cover;
   background-repeat: no-repeat;
@@ -222,7 +222,7 @@ section {
 }
 .main .programs-main__item .information {
   z-index: 5;
-  top: 80%;
+  top: 75%;
   right: 0;
   box-sizing: border-box;
   position: absolute;
@@ -230,21 +230,43 @@ section {
   width: 100%;
   padding: 5% 10%;
   border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
   transition: all 0.5s;
 }
 .main .programs-main__item .information__name {
-  height: 10%;
+  width: 100%;
   color: #fff;
-  text-align: right;
-  margin: 0 0 10px 0;
+  text-align: center;
+  margin: 0 0 15px 0;
   font-size: 1.5em;
+  display: flex;
+  justify-content: space-between;
 }
 .main .programs-main__item .information__discription {
   color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.main .programs-main__item .information__button {
+  width: -moz-max-content;
+  width: max-content;
+  height: -moz-max-content;
+  height: max-content;
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  font-size: large;
+  padding: 8px 16px;
+  background: #000;
+  border-radius: 20px;
+  border: 1px solid #fff;
 }
 .main .programs-main__item:hover .information {
   background-color: rgba(0, 0, 0, 0.6);
   top: 0;
+}
+.main .programs-main__item:hover .information__discription {
+  opacity: 1;
 }
 .main .info {
   background: #000;
@@ -576,4 +598,30 @@ section {
 .footer__social-link img {
   -o-object-fit: contain;
      object-fit: contain;
+}
+
+.modal {
+  opacity: 0;
+  width: 20%;
+  border-radius: 20px;
+  background: rgba(64, 64, 64, 0.9);
+  position: fixed;
+  color: #fff;
+  text-align: center;
+  font-size: 1.2em;
+  padding: 2vh 2vw;
+  top: 50%;
+  left: 50%;
+  display: none;
+  translate: -50% -50%;
+  transition: opacity 0.3s;
+}
+.modal--active {
+  display: block;
+  opacity: 1;
+}
+@media (max-width: 1024px) {
+  .modal {
+    width: 80%;
+  }
 }/*# sourceMappingURL=style.css.map */

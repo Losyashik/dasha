@@ -147,12 +147,12 @@ if ((!empty($_POST['name']))  and (!empty($_POST['discription']))) {
                     <button type="submit" name="addWork">Добавить</button>
                 </form>
             </div>
-            <h1>Работы</h1>
+            <h1>программы тренировок</h1>
             <table class="work_list table">
                 <tr class="administrators_list__row table_row">
                     <th class="administrators_list__ceil table_ceil">Изображение</th>
                     <th class="administrators_list__ceil table_ceil">Имя</th>
-                    <th class="administrators_list__ceil table_ceil">Адрес</th>
+                    <th class="administrators_list__ceil table_ceil">Краткое описание</th>
                     <th class="administrators_list__ceil table_ceil">Удаление</th>
                 </tr>
                 <?php
@@ -234,7 +234,26 @@ if ((!empty($_POST['name']))  and (!empty($_POST['discription']))) {
                 } ?>
             </table>
         </sectiion>
+        <div id="editor"></div>
     </main>
+    <script src="./editor/editorjs@latest.js"></script>
+    <script src="./editor/header@latest.js"></script>
+    <script src="./editor/list@latest.js"></script>
+    <script>
+        const ed = new EditorJS({
+            holder: "editor",
+            tools: {
+                Header,
+                list: {
+                    class: List,
+                    inlineToolbar: true,
+                    config: {
+                        defaultStyle: 'unordered'
+                    }
+                },
+            },
+        })
+    </script>
 </body>
 
 </html>

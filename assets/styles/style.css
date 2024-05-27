@@ -258,9 +258,13 @@ section {
   color: #fff;
   font-size: large;
   padding: 8px 16px;
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
   background: #000;
   border-radius: 20px;
   border: 1px solid #fff;
+  z-index: 10;
 }
 .main .programs-main__item:hover .information {
   background-color: rgba(0, 0, 0, 0.6);

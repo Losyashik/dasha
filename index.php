@@ -51,13 +51,13 @@
                         <div class="information">
                             <h4 class="information__name">
                                 <?= $elem['name'] ?>
-                                <a href="./program.php?id=<?= $elem['id'] ?>" class="information__button">Подробнее</a>
                             </h4>
                             <p class="information__discription">
                                 <?= $elem['description'] ?>
                             </p>
 
                         </div>
+                        <a href="./program.php?id=<?= $elem['id'] ?>" class="information__button">Подробнее</a>
                     </article>
 
                 <?php } ?>

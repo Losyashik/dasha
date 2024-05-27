@@ -1,6 +1,26 @@
 body{
     background: #000;
+    color: #fff;
 }
 .topbar{
     border-bottom:2px solid #fff ;
+}
+.program{
+    width: 80%;
+    margin: 6vh auto 2vh;
+    &_heading{
+        text-align: center;
+    }
+    &_button{
+        width: max-content;
+        font-size: large;
+        border: 2px solid;
+        background: #333030;
+        border-radius: 20px;
+        color: #fff;
+        text-decoration: none;
+        padding: 5px 30px;
+        margin: 0 auto;
+        display: block;
+    }
 }

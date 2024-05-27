@@ -97,6 +97,10 @@ if ((!empty($_POST['name']))  and (!empty($_POST['discription']))) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Административная панель</title>
     <style>
+        #editor {
+            border: 1px solid;
+        }
+
         .table {
             width: 90%;
             margin: 0 auto;
@@ -139,15 +143,17 @@ if ((!empty($_POST['name']))  and (!empty($_POST['discription']))) {
     <main class="main_admin">
         <section class="works">
             <div class="form">
-                <h2>Добавление работ</h2>
+                <h2>Добавление программ тренировок</h2>
                 <form method="post" class="form__body" enctype="multipart/form-data">
                     <input type="text" name="name" placeholder="Название">
                     <textarea name="discription" id="" cols="30" rows="10"></textarea>
-                    <input type="file" name="image" id="">
+                    <label>Изображение на главной странице <input type="file" name="image" id=""></label>
+                    <div id="editor"></div>
+                    <label>3 изображения для описания <input type="file" name="images" id="" multiple max="3"></label>
                     <button type="submit" name="addWork">Добавить</button>
                 </form>
             </div>
-            <h1>программы тренировок</h1>
+            <h1>Программы тренировок</h1>
             <table class="work_list table">
                 <tr class="administrators_list__row table_row">
                     <th class="administrators_list__ceil table_ceil">Изображение</th>
@@ -234,13 +240,12 @@ if ((!empty($_POST['name']))  and (!empty($_POST['discription']))) {
                 } ?>
             </table>
         </sectiion>
-        <div id="editor"></div>
     </main>
     <script src="./editor/editorjs@latest.js"></script>
     <script src="./editor/header@latest.js"></script>
     <script src="./editor/list@latest.js"></script>
     <script>
-        const ed = new EditorJS({
+        const editor = new EditorJS({
             holder: "editor",
             tools: {
                 Header,
@@ -253,6 +258,11 @@ if ((!empty($_POST['name']))  and (!empty($_POST['discription']))) {
                 },
             },
         })
+        editor.save().then((outputData) => {
+            console.log('Article data: ', outputData)
+        }).catch((error) => {
+            console.log('Saving failed: ', error)
+        });
     </script>
 </body>
 

@@ -19,7 +19,7 @@ for ($item['images'] = []; $row = $res->fetch_array(); $item['images'][] = $row[
                 <?php
             } elseif ($i['type'] == 'Header') {
                 ?>
-                <h2 class="program_body-heading"><?= $i['data']['text'] ?></h2>
+                <h3 class="program_body-heading"><?= $i['data']['text'] ?></h3>
                 <?php
             } elseif ($i['type'] == 'list') {
                 ?>

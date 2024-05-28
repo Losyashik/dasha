@@ -549,21 +549,31 @@ section {
   justify-content: space-between;
   align-items: center;
   background-color: #000;
-  padding: 0 5vw;
+  padding: 10px 5vw;
   font-size: 1.5em;
   color: #fff;
   text-align: center;
 
   @media (max-width: 1024px) {
+    flex-wrap: wrap;
     flex-direction: column;
+    max-height: 15vh;
+    justify-content: space-evenly;
+    justify-items: center;
+    align-items: center;
+
     &__copyright {
-      margin: 2vh 0;
+      // margin: 2vh 0;
+      font-size: small;
     }
   }
   &__mail-link {
     box-sizing: border-box;
     font-size: 1.5em;
     color: #fff;
+    @media (max-width: 1024px) {
+      font-size: medium;
+    }
   }
   &__social {
     display: flex;
@@ -572,8 +582,13 @@ section {
     &-link {
       margin-right: 1vw;
       width: 10vh;
-      height: 10vw;
+      height: 10vh;
+      @media (max-width: 1024px) {
+        width: 8vh;
+        height: 8vh;
+      }
       img {
+        display: block;
         object-fit: contain;
       }
     }

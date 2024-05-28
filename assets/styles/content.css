@@ -19,10 +19,10 @@ body {
 .program_button {
   width: -moz-max-content;
   width: max-content;
-  font-size: large;
+  font-size: larger;
   border: 2px solid;
   background: #333030;
-  border-radius: 20px;
+  border-radius: 25px;
   color: #fff;
   text-decoration: none;
   padding: 5px 30px;
@@ -65,4 +65,8 @@ body {
 }
 .program_slider-image-center {
   height: 50vh;
+}
+
+.footer {
+  background: #333030;
 }/*# sourceMappingURL=content.css.map */

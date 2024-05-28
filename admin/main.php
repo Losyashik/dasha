@@ -144,7 +144,7 @@ if ((!empty($_POST['name']))  and (!empty($_POST['discription']))) {
         <section class="works">
             <div class="form">
                 <h2>Добавление программ тренировок</h2>
-                <form method="post" class="form__body" enctype="multipart/form-data">
+                <form method="post" class="form__body" id="app" enctype="multipart/form-data">
                     <input type="text" name="name" placeholder="Название">
                     <textarea name="discription" id="" cols="30" rows="10"></textarea>
                     <label>Изображение на главной странице <input type="file" name="image" id=""></label>
@@ -245,6 +245,14 @@ if ((!empty($_POST['name']))  and (!empty($_POST['discription']))) {
     <script src="./editor/header@latest.js"></script>
     <script src="./editor/list@latest.js"></script>
     <script>
+        app.addEventListener('submit', (e) => {
+            e.preventDefult()
+            editor.save().then((outputData) => {
+                console.log('Article data: ', outputData)
+            }).catch((error) => {
+                console.log('Saving failed: ', error)
+            });
+        })
         const editor = new EditorJS({
             holder: "editor",
             tools: {
@@ -258,11 +266,6 @@ if ((!empty($_POST['name']))  and (!empty($_POST['discription']))) {
                 },
             },
         })
-        editor.save().then((outputData) => {
-            console.log('Article data: ', outputData)
-        }).catch((error) => {
-            console.log('Saving failed: ', error)
-        });
     </script>
 </body>
 

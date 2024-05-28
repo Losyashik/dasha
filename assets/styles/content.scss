@@ -1,19 +1,19 @@
-body{
+body {
     background: #000;
     color: #fff;
 }
-.topbar{
-    border-bottom:2px solid #fff ;
+.topbar {
+    border-bottom: 2px solid #fff;
 }
-.program{
-    width: 80%;
+.program {
+    width: 90%;
     margin: 6vh auto 2vh;
     text-align: center;
-    font-size: larger;
-    &_heading{
+    font-size: x-large;
+    &_heading {
         text-align: center;
     }
-    &_button{
+    &_button {
         width: max-content;
         font-size: large;
         border: 2px solid;
@@ -25,10 +25,40 @@ body{
         margin: 0 auto;
         display: block;
     }
-    &_list{
+    &_list {
         text-align: center;
-        &-li{
-            display:inline-block
+        list-style-type: none;
+        &-li {
+            display: inline-block;
+            &::before {
+                content: "";
+                display: inline-block;
+                border-radius: 100%;
+                background: #fff;
+                width: 0.5em;
+                height: 0.5em;
+                margin-right: 0.5em;
+            }
+        }
+    }
+    &_slider {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 60%;
+        margin: 3vh auto;
+        &-image {
+            display: block;
+            object-fit: contain;
+            box-shadow: 0 0 10px 0 #fff;
+            width: fit-content;
+            &-left,
+            &-right {
+                height: 40vh;
+            }
+            &-center {
+                height: 50vh;
+            }
         }
     }
 }

@@ -57,7 +57,7 @@ CREATE TABLE `programs` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(50) NOT NULL,
   `description` text NOT NULL,
-  `full_description` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`full_description`)),
+  `full_description` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `image` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 

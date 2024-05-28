@@ -1,8 +1,10 @@
 <?php
-require_once("./assets/componetnts/header.php");
+require_once ("./assets/componetnts/header.php");
 $link = mysqli_connect('', 'root', '', 'sila');
 $item = $link->query("SELECT `name`,`full_description` FROM `programs` WHERE `id`={$_GET['id']}")->fetch_assoc();
-$item['images'] = $link->query("SELECT `image` FROM `program_images` WHERE `id_program`={$_GET['id']}");
+$res = $link->query("SELECT `image` FROM `program_images` WHERE `id_program`={$_GET['id']}");
+for ($item['images'] = []; $row = $res->fetch_array(); $item['images'][] = $row[0])
+    ;
 ?>
 
 <main class="program">
@@ -12,24 +14,24 @@ $item['images'] = $link->query("SELECT `image` FROM `program_images` WHERE `id_p
         $desc = json_decode($item['full_description'], 1);
         foreach ($desc as $i) {
             if ($i['type'] == 'paragraph') {
-        ?>
+                ?>
                 <p class="program_paragraph"><?= $i['data']['text'] ?></p>
-            <?php
+                <?php
             } elseif ($i['type'] == 'Header') {
-            ?>
+                ?>
                 <h2 class="program_body-heading"><?= $i['data']['text'] ?></h2>
-            <?php
+                <?php
             } elseif ($i['type'] == 'list') {
-            ?>
+                ?>
                 <ul class="program_list">
                     <?php
                     foreach ($i['data']['items'] as $li) {
-                    ?>
+                        ?>
                         <li class="program_list-li"><?= $li ?></li>
-                    <?php
+                        <?php
                     } ?>
                 </ul>
-        <?php
+                <?php
             }
         }
         ?>
@@ -41,6 +43,8 @@ $item['images'] = $link->query("SELECT `image` FROM `program_images` WHERE `id_p
     </section>
     <a href="./#application" class="program_button">Оставить заявку</a>
 </main>
+
+<?php require_once ("./assets/componetnts/footer.php") ?>
 </body>
 
 </html>

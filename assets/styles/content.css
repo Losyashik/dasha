@@ -8,10 +8,10 @@ body {
 }
 
 .program {
-  width: 80%;
+  width: 90%;
   margin: 6vh auto 2vh;
   text-align: center;
-  font-size: larger;
+  font-size: x-large;
 }
 .program_heading {
   text-align: center;
@@ -31,7 +31,38 @@ body {
 }
 .program_list {
   text-align: center;
+  list-style-type: none;
 }
 .program_list-li {
   display: inline-block;
+}
+.program_list-li::before {
+  content: "";
+  display: inline-block;
+  border-radius: 100%;
+  background: #fff;
+  width: 0.5em;
+  height: 0.5em;
+  margin-right: 0.5em;
+}
+.program_slider {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60%;
+  margin: 3vh auto;
+}
+.program_slider-image {
+  display: block;
+  -o-object-fit: contain;
+     object-fit: contain;
+  box-shadow: 0 0 10px 0 #fff;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.program_slider-image-left, .program_slider-image-right {
+  height: 40vh;
+}
+.program_slider-image-center {
+  height: 50vh;
 }/*# sourceMappingURL=content.css.map */

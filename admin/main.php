@@ -66,26 +66,26 @@ function translit($str)
     return strtr($str, $tr);
 }
 
-if ((!empty($_POST['name']))  and (!empty($_POST['discription']))) {
-    $name = $_POST['name'];
-    $discription = $_POST['discription'];
+// if ((!empty($_POST['name']))  and (!empty($_POST['discription']))) {
+//     $name = $_POST['name'];
+//     $discription = $_POST['discription'];
 
-    if (isset($_FILES['image']) and $_FILES['image']["error"] == 0) {
-        $img = $_FILES['image'];
-        $imgName = $img['name'];
-        $imgName = "assets/images/programs/" . translit($name . time()) . substr($imgName, strpos($imgName, '.', 0));
-        if (move_uploaded_file($img['tmp_name'], "./../$imgName")) {
-            $query = "INSERT INTO `programs`( name, description, image) VALUES ('$name', '$discription','./$imgName')";
-            echo $query;
-            mysqli_query($link, $query) or die(mysqli_error($link));
-            header('Location:./main.php');
-        } else {
-            echo "error";
-        }
-    } else {
-        print_r($_FILES['image']);
-    }
-}
+//     if (isset($_FILES['image']) and $_FILES['image']["error"] == 0) {
+//         $img = $_FILES['image'];
+//         $imgName = $img['name'];
+//         $imgName = "assets/images/programs/" . translit($name . time()) . substr($imgName, strpos($imgName, '.', 0));
+//         if (move_uploaded_file($img['tmp_name'], "./../$imgName")) {
+//             $query = "INSERT INTO `programs`( name, description, image) VALUES ('$name', '$discription','./$imgName')";
+//             echo $query;
+//             mysqli_query($link, $query) or die(mysqli_error($link));
+//             header('Location:./main.php');
+//         } else {
+//             echo "error";
+//         }
+//     } else {
+//         print_r($_FILES['image']);
+//     }
+// }
 
 ?>
 <!DOCTYPE html>
@@ -245,14 +245,6 @@ if ((!empty($_POST['name']))  and (!empty($_POST['discription']))) {
     <script src="./editor/header@latest.js"></script>
     <script src="./editor/list@latest.js"></script>
     <script>
-        app.addEventListener('submit', (e) => {
-            e.preventDefult()
-            editor.save().then((outputData) => {
-                console.log('Article data: ', outputData)
-            }).catch((error) => {
-                console.log('Saving failed: ', error)
-            });
-        })
         const editor = new EditorJS({
             holder: "editor",
             tools: {
@@ -265,6 +257,14 @@ if ((!empty($_POST['name']))  and (!empty($_POST['discription']))) {
                     }
                 },
             },
+        }) 
+        app.addEventListener('submit', (event) => {
+            event.preventDefault()
+            editor.save().then((outputData) => {
+                console.log('Article data: ', JSON.stringify(outputData.blocks))
+            }).catch((error) => {
+                console.log('Saving failed: ', error)
+            });
         })
     </script>
 </body>

@@ -10,6 +10,8 @@ body {
 .program {
   width: 80%;
   margin: 6vh auto 2vh;
+  text-align: center;
+  font-size: larger;
 }
 .program_heading {
   text-align: center;
@@ -26,4 +28,10 @@ body {
   padding: 5px 30px;
   margin: 0 auto;
   display: block;
+}
+.program_list {
+  text-align: center;
+}
+.program_list-li {
+  display: inline-block;
 }/*# sourceMappingURL=content.css.map */

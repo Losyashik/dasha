@@ -8,7 +8,31 @@ $item['images'] = $link->query("SELECT `image` FROM `program_images` WHERE `id_p
 <main class="program">
     <h1 class="program_heading"><?= $item['name'] ?></h1>
     <section class="program_description">
-
+        <?php
+        $desc = json_decode($item['full_description'], 1);
+        foreach ($desc as $i) {
+            if ($i['type'] == 'paragraph') {
+        ?>
+                <p class="program_paragraph"><?= $i['data']['text'] ?></p>
+            <?php
+            } elseif ($i['type'] == 'Header') {
+            ?>
+                <h2 class="program_body-heading"><?= $i['data']['text'] ?></h2>
+            <?php
+            } elseif ($i['type'] == 'list') {
+            ?>
+                <ul class="program_list">
+                    <?php
+                    foreach ($i['data']['items'] as $li) {
+                    ?>
+                        <li class="program_list-li"><?= $li ?></li>
+                    <?php
+                    } ?>
+                </ul>
+        <?php
+            }
+        }
+        ?>
     </section>
     <section class="program_slider">
         <img src="<?= $item['images'][0] ?>" alt="" class="program_slider-image program_slider-image-left">

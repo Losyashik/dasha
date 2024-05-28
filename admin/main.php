@@ -43,49 +43,7 @@ if (isset($_POST['name']) and isset($_POST['login']) and isset($_POST['password'
     }
 }
 
-function translit($str)
-{
-    $tr = array(
-        "А" => "A", "Б" => "B", "В" => "V", "Г" => "G",
-        "Д" => "D", "Е" => "E", "Ж" => "J", "З" => "Z", "И" => "I",
-        "Й" => "Y", "К" => "K", "Л" => "L", "М" => "M", "Н" => "N",
-        "О" => "O", "П" => "P", "Р" => "R", "С" => "S", "Т" => "T",
-        "У" => "U", "Ф" => "F", "Х" => "H", "Ц" => "TS", "Ч" => "CH",
-        "Ш" => "SH", "Щ" => "SCH", "Ъ" => "", "Ы" => "YI", "Ь" => "",
-        "Э" => "E", "Ю" => "YU", "Я" => "YA", "а" => "a", "б" => "b",
-        "в" => "v", "г" => "g", "д" => "d", "е" => "e", "ж" => "j",
-        "з" => "z", "и" => "i", "й" => "y", "к" => "k", "л" => "l",
-        "м" => "m", "н" => "n", "о" => "o", "п" => "p", "р" => "r",
-        "с" => "s", "т" => "t", "у" => "u", "ф" => "f", "х" => "h",
-        "ц" => "ts", "ч" => "ch", "ш" => "sh", "щ" => "sch", "ъ" => "y",
-        "ы" => "yi", "ь" => "", "э" => "e", "ю" => "yu", "я" => "ya",
-        "." => "_", " " => "_", "?" => "_", "/" => "_", "\\" => "_",
-        "*" => "_", ":" => "_", "*" => "_", "\"" => "_", "<" => "_",
-        ">" => "_", "|" => "_"
-    );
-    return strtr($str, $tr);
-}
 
-// if ((!empty($_POST['name']))  and (!empty($_POST['discription']))) {
-//     $name = $_POST['name'];
-//     $discription = $_POST['discription'];
-
-//     if (isset($_FILES['image']) and $_FILES['image']["error"] == 0) {
-//         $img = $_FILES['image'];
-//         $imgName = $img['name'];
-//         $imgName = "assets/images/programs/" . translit($name . time()) . substr($imgName, strpos($imgName, '.', 0));
-//         if (move_uploaded_file($img['tmp_name'], "./../$imgName")) {
-//             $query = "INSERT INTO `programs`( name, description, image) VALUES ('$name', '$discription','./$imgName')";
-//             echo $query;
-//             mysqli_query($link, $query) or die(mysqli_error($link));
-//             header('Location:./main.php');
-//         } else {
-//             echo "error";
-//         }
-//     } else {
-//         print_r($_FILES['image']);
-//     }
-// }
 
 ?>
 <!DOCTYPE html>
@@ -149,7 +107,7 @@ function translit($str)
                     <textarea name="discription" id="" cols="30" rows="10"></textarea>
                     <label>Изображение на главной странице <input type="file" name="image" id=""></label>
                     <div id="editor"></div>
-                    <label>3 изображения для описания <input type="file" name="images" id="" multiple max="3"></label>
+                    <label>3 изображения для описания <input type="file" name="images[]" id="" multiple max="3"></label>
                     <button type="submit" name="addWork">Добавить</button>
                 </form>
             </div>
@@ -257,11 +215,23 @@ function translit($str)
                     }
                 },
             },
-        }) 
+        })
         app.addEventListener('submit', (event) => {
             event.preventDefault()
             editor.save().then((outputData) => {
-                console.log('Article data: ', JSON.stringify(outputData.blocks))
+                let body = new FormData(event.currentTarget)
+                body.append("app", "True");
+                body.append("full_description", JSON.stringify(outputData.blocks));
+                fetch("./add/", {
+                    method: "post",
+                    body
+                }).then(response => {
+                    if (response.status == 200)
+                        // location.reload()
+                        console.log();
+                    else
+                        console.log(response.text())
+                })
             }).catch((error) => {
                 console.log('Saving failed: ', error)
             });

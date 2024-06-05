@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Май 28 2024 г., 16:59
+-- Время создания: Май 29 2024 г., 17:22
 -- Версия сервера: 10.4.28-MariaDB
 -- Версия PHP: 8.2.4
 
@@ -85,6 +85,15 @@ CREATE TABLE `program_images` (
   `image` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+--
+-- Дамп данных таблицы `program_images`
+--
+
+INSERT INTO `program_images` (`id`, `id_program`, `image`) VALUES
+(1, 3, './assets/images/programs/1.png'),
+(2, 3, './assets/images/programs/2.png'),
+(3, 3, './assets/images/programs/3.png');
+
 -- --------------------------------------------------------
 
 --
@@ -127,7 +136,8 @@ ALTER TABLE `programs`
 -- Индексы таблицы `program_images`
 --
 ALTER TABLE `program_images`
-  ADD UNIQUE KEY `id` (`id`);
+  ADD UNIQUE KEY `id` (`id`),
+  ADD KEY `id_program` (`id_program`);
 
 --
 -- Индексы таблицы `users`
@@ -155,7 +165,7 @@ ALTER TABLE `programs`
 -- AUTO_INCREMENT для таблицы `program_images`
 --
 ALTER TABLE `program_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
@@ -172,6 +182,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `application`
   ADD CONSTRAINT `application_ibfk_1` FOREIGN KEY (`id_program`) REFERENCES `programs` (`id`);
+
+--
+-- Ограничения внешнего ключа таблицы `program_images`
+--
+ALTER TABLE `program_images`
+  ADD CONSTRAINT `program_images_ibfk_1` FOREIGN KEY (`id_program`) REFERENCES `programs` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

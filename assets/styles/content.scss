@@ -45,15 +45,34 @@ body {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 80%;
+        width: 50%;
         margin: 3vh auto;
-        .slick-track{
-            height: 30vh;
+        @media (max-width:900px) {
+            width: 80%;
+        }
+        .slick-list {
+            box-sizing: border-box;
+        }
+        .slick-track {
+            box-sizing: border-box;
+            padding: 5% 0;
+            height: 70vh;
+            @media (max-width: 480px) {
+                height: 50vh;
+            }
         }
         &-image {
             display: block;
             object-fit: cover;
-            height: 100%;
+            // height: 90% !important;
+            &:not(.slick-center) {
+                filter: brightness(0.2);
+            }
+            &.slick-center {
+                box-shadow: 0 0 15px 0 #fff;
+                position: relative;
+                z-index: 15;
+            }
         }
     }
 }

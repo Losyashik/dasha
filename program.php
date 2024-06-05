@@ -39,28 +39,20 @@ for ($item['images'] = []; $row = $res->fetch_array(); $item['images'][] = $row[
         <img src="<?= $item['images'][0] ?>" alt="" class="program_slider-image program_slider-image-left">
         <img src="<?= $item['images'][1] ?>" alt="" class="program_slider-image program_slider-image-center">
         <img src="<?= $item['images'][2] ?>" alt="" class="program_slider-image program_slider-image-right">
-        <img src="<?= $item['images'][0] ?>" alt="" class="program_slider-image program_slider-image-left">
-        <img src="<?= $item['images'][1] ?>" alt="" class="program_slider-image program_slider-image-center">
-        <img src="<?= $item['images'][2] ?>" alt="" class="program_slider-image program_slider-image-right">
-        <img src="<?= $item['images'][0] ?>" alt="" class="program_slider-image program_slider-image-left">
-        <img src="<?= $item['images'][1] ?>" alt="" class="program_slider-image program_slider-image-center">
-        <img src="<?= $item['images'][2] ?>" alt="" class="program_slider-image program_slider-image-right">
     </section>
     <a href="./#application" class="program_button">Оставить заявку</a>
 </main>
 <script>
     $('.program_slider').slick({
         centerMode: true,
-        centerPadding: '60px',
-        slidesToShow: 3,
-        responsive: [
-            {
+        centerPadding: '20%',
+        slidesToShow: 1,
+        responsive: [{
                 breakpoint: 768,
                 settings: {
                     arrows: false,
                     centerMode: true,
-                    centerPadding: '40px',
-                    slidesToShow: 3
+                    centerPadding: '15%',
                 }
             },
             {
@@ -68,8 +60,7 @@ for ($item['images'] = []; $row = $res->fetch_array(); $item['images'][] = $row[
                 settings: {
                     arrows: false,
                     centerMode: true,
-                    centerPadding: '40px',
-                    slidesToShow: 1
+                    centerPadding: '10%',
                 }
             }
         ]

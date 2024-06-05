@@ -536,7 +536,6 @@ section {
 .main .contacts-main {
   margin-top: 2vh;
   display: flex;
-  height: 50vh;
 }
 .main .contacts-main__map {
   width: 50%;

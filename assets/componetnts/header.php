@@ -7,6 +7,10 @@
     <title>Sila - </title>
     <link rel="stylesheet" href="./assets/styles/style.css">
     <link rel="stylesheet" href="./assets/styles/content.css">
+    <script src="./assets/scripts/jquery-3.6.3.js"></script>
+    <script type="text/javascript" src="./assets/scripts/slick/slick.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./assets/scripts/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="./assets/scripts/slick/slick-theme.css"/>
 </head>
 
 <body>

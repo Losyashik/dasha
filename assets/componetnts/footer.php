@@ -7,3 +7,4 @@
         <a href="" class="footer__social-link"><img src="./assets/images/icons/telegram.png" alt=""></a>
     </div>
 </footer>
+<script src="./assets/scripts/scripts.js"></script>

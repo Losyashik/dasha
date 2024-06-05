@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/styles/style.css">
     <script src="./assets/scripts/jquery-3.6.3.js"></script>
-    <script src="./assets/scripts/scripts.js"></script>
     <title>Фитнес-центр “Sila”</title>
 </head>
 
@@ -176,22 +175,14 @@
 
         </section>
     </main>
-    <footer class="footer">
-        <div class="footer__mail"><a href="mail:fitnes@Sila.ru" class="footer__mail-link">fitnes@Sila.ru</a>
-        </div>
-        <div class="footer__copyright">Все права защищены &copy;</div>
-        <div class="footer__social">
-            <a href="" class="footer__social-link"><img src="./assets/images/icons/vk.png" alt=""></a>
-            <a href="" class="footer__social-link"><img src="./assets/images/icons/telegram.png" alt=""></a>
-        </div>
-    </footer>
+    <?php include_once("./assets/componetnts/footer.php") ?>
     <div class="modal">
         Ваша заявка принята<br />Менеджер свяжется с вами в течении часа
     </div>
     <script>
         
         $(`.modal`).click(() => {
-            $(`.modal`).addClass(`modal--active`);
+            $(`.modal`).removeClass(`modal--active`);
         })
         $(`.aplication-form`).submit((e) => {
             e.preventDefault();
@@ -207,11 +198,14 @@
                 success: (res) => {
                     $(`.modal`).addClass(`modal--active`);
                     $(`.aplication-form`)[0].reset();
+                    setTimeout(()=>{
+                        $(`.modal`).removeClass(`modal--active`);
+                    },3000)
                 }
             })
         })
     </script>
-    <script src="./assets/scripts/scripts.js"></script>
+    
 </body>
 
 </html>
